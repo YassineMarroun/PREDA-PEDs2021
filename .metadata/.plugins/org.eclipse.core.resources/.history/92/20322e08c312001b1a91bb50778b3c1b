@@ -1,0 +1,26 @@
+/**
+ * @ (#) Torneo.java
+ *
+ * Clase Torneo.
+ * Clase principal que inicia el programa. Recibe los datos de entrada,
+ * y realiza la llamada a la clase que implementa el algoritmo.
+ *
+ * @author Yassine Marroun
+ * @version 1.00 2020/10/08
+ */
+
+package com.torneoNJugadores.YassineMN;
+
+public class Torneo {
+	
+	public static void main(String[] args) {
+		
+		String jugadores[] = {"Djokovic", "Nadal", "Thiem", "Federer", "Tsitsipas", "Medvedev", "Zverev", "Schwartzman"};
+		int dias = jugadores.length-1;
+		int[][] tabla = new int[jugadores.length+1][dias+1];
+		
+		tabla = Algoritmo.calcularTorneo(jugadores.length, tabla);
+		DatosSalida.imprimirConsola(jugadores, dias, tabla);
+		DatosSalida.imprimirArchivo(jugadores, dias, tabla);
+	}
+}

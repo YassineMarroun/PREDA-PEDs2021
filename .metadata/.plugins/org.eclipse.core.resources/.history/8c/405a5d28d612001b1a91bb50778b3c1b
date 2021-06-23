@@ -1,0 +1,34 @@
+/**
+ * @ (#) DatosEntrada.java
+ *
+ * Clase DatosEntrada.
+ * Clase encargada de leer los datos de un archivo para proceder a encuadrar el torneo.
+ *
+ * @author Yassine Marroun
+ * @version 1.00 2020/10/20
+ */
+package com.torneoNJugadores.YassineMN;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class DatosEntrada {
+	
+	public static void leerArchivo() {
+		
+		try {
+		Scanner scanner = new Scanner(new File("jugadores.txt"));
+		ArrayList<String> listaJugadores = new ArrayList<String>();
+		while (scanner.hasNext()){
+		    listaJugadores.add(scanner.next());
+		}
+		String[] arrayJugadores = new String[listaJugadores.size()];
+		listaJugadores.toArray(arrayJugadores);
+		scanner.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		return arrayJugadores;
+	}
+}

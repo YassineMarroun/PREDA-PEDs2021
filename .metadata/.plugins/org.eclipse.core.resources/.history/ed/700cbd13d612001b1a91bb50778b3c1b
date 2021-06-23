@@ -1,0 +1,45 @@
+/**
+ * @ (#) Torneo.java
+ *
+ * Clase Torneo.
+ * Clase principal que inicia el programa. Recibe los datos de entrada,
+ * y realiza la llamada a la clase que implementa el algoritmo.
+ *
+ * @author Yassine Marroun
+ * @version 1.00 2020/10/20
+ */
+
+package com.torneoNJugadores.YassineMN;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Torneo {
+	
+	public static void main(String[] args) {
+	
+		try {
+		Scanner scanner = new Scanner(new File("jugadores.txt"));
+		ArrayList<String> listaJugadores = new ArrayList<String>();
+		while (scanner.hasNext()){
+		    listaJugadores.add(scanner.next());
+		}
+		String[] arrayJugadores = new String[listaJugadores.size()];
+		listaJugadores.toArray(arrayJugadores);
+		scanner.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		
+		//String jugadores[] = DatosEntrada.cogerArray(arrayJugadores);
+		//String jugadores[] = {"Djokovic", "Nadal", "Thiem", "Federer", "Tsitsipas", "Medvedev", "Zverev", "Schwartzman"};
+		int dias = arrayJugadores.length-1;
+		int[][] tabla = new int[jugadores.length+1][dias+1];
+		
+		tabla = Algoritmo.calcularTorneo(jugadores.length, tabla);
+		DatosSalida.imprimirConsola(jugadores, dias, tabla);
+		DatosSalida.imprimirArchivo(jugadores, dias, tabla);
+	}
+}

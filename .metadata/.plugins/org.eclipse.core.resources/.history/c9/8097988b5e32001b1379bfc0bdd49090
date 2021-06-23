@@ -1,0 +1,43 @@
+/**
+ * @ (#) DatosEntrada.java
+ *
+ * Clase DatosEntrada.
+ * Clase encargada de leer los datos de un archivo para formar el tablero inicial.
+ *
+ * @author Yassine Marroun
+ * @version 1.00 2020/10/24
+ */
+package sudoku9x9;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public class DatosEntrada {
+	
+	public static int[][] leerArchivo() {
+		
+		try {
+		Scanner scanner = new Scanner(new File("tableroEntrada.txt"));
+		int[][] tableroEntrada = new int[9][9];
+
+		for(int i = 0; i < tableroEntrada.length; i++) {
+			for(int j = 0; j < tableroEntrada[i].length; j++) {
+				while (scanner.hasNext()){	
+					if(scanner.next().equals("-")) {
+						tableroEntrada[i][j] = 0;
+					} else {
+						tableroEntrada[i][j] = scanner.nextInt();
+					}
+				}
+			}
+			
+		}
+		scanner.close();
+		
+		return tableroEntrada;
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+}

@@ -1,0 +1,10 @@
+package com.torneoNJugadores.YassineMN;
+
+public class Torneo {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,54 @@
+/**
+ * @ (#) DatosSalida.java
+ *
+ * Clase DatosSalida.
+ * Clase encargada de dar el formato visual a la solucion obtenida y guardar en el archivo de salida.
+ *
+ * @author Yassine Marroun
+ * @version 1.00 2020/10/08
+ */
+package com.torneoNJugadores.YassineMN;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class DatosSalida {
+	
+	public static void imprimirConsola(String jugadores[], int dias, int[][]tabla) {
+		
+		for (int i=1; i <= dias; i++) {
+			System.out.print("\t\tDia: " + i + " ");
+		}
+		System.out.print("\n\t\t------------------------------------------------------------------------------------------------------\n");
+		for (int fila = 1; fila <= jugadores.length; fila++){
+			System.out.print("Jugador " + jugadores[fila-1] + " : ");
+			for (int columna = 1; columna <= dias; columna++){
+				int op = tabla[fila][columna];
+				System.out.print("\t" + jugadores[op]+"\t");
+				System.out.print("\t" + tabla[fila][columna]+"\t");
+			}
+			System.out.print("\n\t\t------------------------------------------------------------------------------------------------------\n");
+		}
+	}
+
+	public static void imprimirArchivo(String jugadores[], int dias, int[][]tabla) {
+		
+		try {
+			FileWriter writer = new FileWriter("Torneo de Tenis " + jugadores.length + " Jugadores.txt");
+			
+			for (int i=1; i <= dias; i++) {
+				writer.write("\t\tDia: " + i + " ");
+			}
+			writer.write("\n\t\t------------------------------------------------------------------------------------------------------\n");
+			for (int fila = 1; fila <= jugadores.length; fila++){
+				writer.write("Jugador " + jugadores[fila-1] + " : ");
+				for (int columna = 1; columna <= dias; columna++){
+					writer.write("\t" + tabla[fila][columna]+"\t");
+				}
+				writer.write("\n\t\t------------------------------------------------------------------------------------------------------\n");
+			}
+			writer.close();
+		} catch (IOException e) {
+			System.out.print("Fallo: " + e);
+		}
+	}
+}

@@ -1,0 +1,20 @@
+/**
+ * @ (#) Algoritmo.java
+ *
+ * Clase Algoritmo.
+ * Clase que implementa el algoritmo que resuelve el problema planteado por el enunciado de la Practica,
+ * basandose en el esquema Divide y Venceras.
+ *
+ * @author Yassine Marroun
+ * @version 1.00 2020/10/08
+ */
+package com.torneoNJugadores.YassineMN;
+
+public class Algoritmo {
+	
+	public Algoritmo() {		
+	}
+	
+	public
+
+}
